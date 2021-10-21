@@ -13,16 +13,16 @@ class Data{
         unite = e_unite;
     }
 
-    //###################################
-    //          METHODES
-    //###################################
-    
     //Méthodes d'accès
     public String getDate(){return date;}
     public int getIdCapteur(){return idCapteur;}
     public int getValeur(){return valeur;}
     public String getUnite(){return unite;}
 
+    //###################################
+    //          METHODES
+    //###################################
+    
     //Afficher valeur
     public void print(){
         System.out.println(date + " " + idCapteur + " " + valeur + " " + unite );
