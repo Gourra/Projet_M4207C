@@ -15,15 +15,13 @@ class Central{
     public int getId() {return id;}
     public ArrayList<Data> getBdd() {return bdd;}
 
+    //###################################
+    //          METHODES
+    //###################################
+
     //Ajout Data dans bdd
     public void addToBdd(Data data){
         bdd.add(data);
     }
 
-    //Afficher valeur dans bdd
-    public void print(){
-        for(int i = 0; i < bdd.size(); i++){
-            bdd.get(i).print();
-        }
-    }
-}
+}  
