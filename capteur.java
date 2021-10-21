@@ -4,7 +4,7 @@ import java.text.DateFormat;
 class capteur {
     String liste [];
     ArrayList<Object> val = new ArrayList<Object>();
-    public void chiant(){
+    public void valeur_random(){
         
         Date aujourdhui = new Date();
         DateFormat shortDateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
