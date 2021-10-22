@@ -25,6 +25,6 @@ class Data{
     
     //Afficher valeur
     public void print(){
-        System.out.println(date + " " + idCapteur + " " + valeur + " " + unite );
+        System.out.println(date + "  -  capteur n°" + idCapteur + "  -  " + valeur + " " + unite );
     }
 }
