@@ -7,17 +7,17 @@ class Capteur {
     //Attributs
     int id;
     String unite;
-    int initialDataInt;
 
     //Constructeur
     public Capteur(int n, String e_unite){
         id = n; //Initiation du n° id
         unite = e_unite;
-        initialDataInt = 0;
     }
 
     //Méthodes d'acces
     public int getId() {return id;}
+    public String getUnite() {return unite;}
+    public void setUnite(String e_unite) {unite = e_unite;}
 
     //###################################
     //          METHODES
