@@ -2,7 +2,7 @@ class Test{
 
     public static void main(String[] args){
         // initialisation des objets
-        Central C1 = new Central(1);
+        Central C1 = new Central();
         Terminal T1 = new Terminal(1);
         Capteur cpt1 = new Capteur(1,"degres");
         Capteur cpt2 = new Capteur(2, "Lumens");

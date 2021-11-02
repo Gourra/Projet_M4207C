@@ -2,25 +2,21 @@ import java.lang.Math;
 import java.util.Date;
 import java.text.DateFormat; 
 
-class Capteur {
+public class CapteurIMPL implements INTCapteur {
     //Attributs
-    int id;
-    String unite;
-
-    //Constructeur
-    public Capteur(int n, String e_unite){
-        id = n; //Initiation du n° id
-        unite = e_unite;
+    int id = 0;
+    String unite = null;
+    
+    //constructeur
+    CapteurIMPL(int n, String un){
+        id = n;
+        unite = un;
     }
 
-    //Méthodes d'acces
+    //méthodes
     public int getId() {return id;}
+    
     public String getUnite() {return unite;}
-    public void setUnite(String e_unite) {unite = e_unite;}
-
-    //###################################
-    //          METHODES
-    //###################################
 
     public String date(){ //genere la date d'une jolie facon
         Date date = new Date();
