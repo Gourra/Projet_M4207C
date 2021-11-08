@@ -15,7 +15,6 @@ public class CapteurIMPL implements INTCapteur {
 
     //méthodes
     public int getId() {return id;}
-    
     public String getUnite() {return unite;}
 
     public String date(){ //genere la date d'une jolie facon

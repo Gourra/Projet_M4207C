@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class CentralIMPL extends UnicastRemoteObject implements INTCentral{
     //Attributs
-    ArrayList<Data> bdd = null;
+    ArrayList<Data> bdd = null; 
 
     //Constructeur
     CentralIMPL() throws java.rmi.RemoteException{
@@ -11,13 +11,13 @@ public class CentralIMPL extends UnicastRemoteObject implements INTCentral{
     }
 
     //méthodes
-    public ArrayList<Data> getBdd() throws java.rmi.RemoteException {return bdd;}
-    public void addToBdd(Data data) throws java.rmi.RemoteException{
+    public ArrayList<Data> getBdd() throws java.rmi.RemoteException {return bdd;} // Retourne sa base de donnée
+    public void addToBdd(Data data) throws java.rmi.RemoteException{ //Ajoute une valeur a sa base de donnée
         bdd.add(data);
-        System.out.println("[Server-log] : (New data) " + data.printToString());
+        //System.out.println("[Server-log] : (New data) " + data.printToString()); //Debug
     }
 
-    public void message(String mess) throws java.rmi.RemoteException {
+    public void message(String mess) throws java.rmi.RemoteException { //Afficher message [Server] :
         System.out.println("[Server] : " + mess);
     }
 }

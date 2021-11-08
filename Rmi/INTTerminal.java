@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public interface INTTerminal {
+public interface INTTerminal { //Interface qui liste toutes les foncntions
     int getId();
     ArrayList<Data> getLocalBdd();
     void print();
