@@ -7,7 +7,7 @@ class Test{
         Capteur cpt1 = new Capteur(1,"degres");
         Capteur cpt2 = new Capteur(2, "Lumens");
 
-        for(int i=0; i<20; i++){
+        for(int i=0; i<20; i++){ //genere des valeurs qui seront ajouté a la bdd du central
             C1.addToBdd(cpt1.createData());
             C1.addToBdd(cpt2.createData());
         }
