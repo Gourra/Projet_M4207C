@@ -24,8 +24,8 @@ public class CapteurIMPL implements INTCapteur {
         return liste;
     }
 
-    public int random(){ //genere un nombre aleatoire entre 0 et 38
-        int n = (int)(Math.random() * 38);
+    public int random(){ //genere un nombre aleatoire entre -15 et 40
+        int n = (int)(Math.random() * 55) - 15 ;
         return n;
     }
 
