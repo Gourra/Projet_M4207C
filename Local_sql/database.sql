@@ -1,0 +1,15 @@
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS valeurs;
+
+CREATE TABLE valeurs
+	(datecpt TEXT NOT NULL,
+	ncpt INTEGER NOT NULL,
+	val INTEGER NOT NULL,
+	unite TEXT NOT NULL);
+
+INSERT INTO valeurs VALUES('13/11/2021 10:46', 1, 16, 'degres');
+INSERT INTO valeurs VALUES('13/11/2021 10:46', 2, -9, 'degres');
+
+END TRANSACTION;
+
