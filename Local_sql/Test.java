@@ -20,6 +20,7 @@ class Test{
         C1.addToBdd(cpt1.createData()); //Ajout de la donnée D1 a la bdd du central
         T1.getBddData(C1); //Transfers de la bbd central vers bddlocal du terminal
         T1.print(); //Affichage de la bddlocale
+        T1.readBddSQL();
     }
 
 }
