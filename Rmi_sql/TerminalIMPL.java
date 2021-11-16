@@ -26,5 +26,15 @@ public class TerminalIMPL {
     public void getBddData(INTCentral central) throws RemoteException{
         localbdd = central.getBdd();
     }
+
+    public void getSqlfull(INTCentral central) throws RemoteException{
+        central.getSqlfull();
+        localbdd = central.getToReturn();
+    }
+
+    public void getSqlfilter(INTCentral central, int ncapt) throws RemoteException{
+        central.getSqlfilter(ncapt);
+        localbdd = central.getToReturn();
+    }
     
 }

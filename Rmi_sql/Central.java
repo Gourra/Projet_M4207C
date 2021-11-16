@@ -4,14 +4,17 @@ import java.sql.*;
 class Central{
     //Attributs
     ArrayList<Data> bdd;
+    ArrayList<Data> toReturn;
 
     //Contructeur
     public Central(){
         this.bdd = new ArrayList<Data>(); //Initiation de la base de donnée
+        this.toReturn = new ArrayList<Data>();
     }
 
     //Méthodes d'accès
     public ArrayList<Data> getBdd() {return bdd;}
+    public ArrayList<Data> getToReturn() {return toReturn;}
     public void addToBdd(Data data){
         bdd.add(data);
     }
@@ -52,6 +55,82 @@ class Central{
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
+    }
+
+    public void getSqlfull(){
+
+        ArrayList<Data> toReturn2 = new ArrayList<Data>();
+        Connection c = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:database.db");
+            c.setAutoCommit(false);
+            //System.out.println("Opened database successfully"); //debug
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM VALEURS;" );
+            
+            while ( rs.next() ) {
+                int idcapt = rs.getInt("ncpt");
+                String  date = rs.getString("datecpt");
+                int val  = rs.getInt("val");
+                String  unite = rs.getString("unite");
+                
+                toReturn2.add((new Data(date, idcapt, val, unite)));
+                //System.out.println(date + "  -  capteur n°" + idcapt + "  -  " + val + " " + unite );
+            }
+
+            rs.close();
+            stmt.close();
+            c.close();
+
+        } catch ( Exception e ) {
+            System.out.println("Une erreur est survenue");
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        toReturn = toReturn2;
+    }
+
+    public void getSqlfilter(int ncapt){
+
+        ArrayList<Data> toReturn2 = new ArrayList<Data>();
+        Connection c = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:database.db");
+            c.setAutoCommit(false);
+            //System.out.println("Opened database successfully"); //debug
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM VALEURS WHERE ncpt="+ncapt+";" );
+            
+            while ( rs.next() ) {
+                int idcapt = rs.getInt("ncpt");
+                String  date = rs.getString("datecpt");
+                int val  = rs.getInt("val");
+                String  unite = rs.getString("unite");
+                
+                toReturn2.add((new Data(date, idcapt, val, unite)));
+                //System.out.println(date + "  -  capteur n°" + idcapt + "  -  " + val + " " + unite );
+            }
+
+            rs.close();
+            stmt.close();
+            c.close();
+
+        } catch ( Exception e ) {
+            System.out.println("Une erreur est survenue");
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        toReturn = toReturn2;
     }
 
 }  

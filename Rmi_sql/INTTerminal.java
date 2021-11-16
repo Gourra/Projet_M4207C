@@ -5,4 +5,6 @@ public interface INTTerminal { //Interface qui liste toutes les foncntions
     ArrayList<Data> getLocalBdd();
     void print();
     void getBddData(Central central);
+    void getSqlfull(Central central);
+    void getSqlfilter(Central central, int ncapt);
 }

@@ -31,4 +31,14 @@ class Terminal{
         localbdd = central.getBdd();
     }
 
+    public void getSqlfull(Central central){
+        central.getSqlfull();
+        localbdd = central.getToReturn();
+    }
+
+    public void getSqlfilter(Central central, int ncapt){
+        central.getSqlfilter(ncapt);
+        localbdd = central.getToReturn();
+    }
+
 }
