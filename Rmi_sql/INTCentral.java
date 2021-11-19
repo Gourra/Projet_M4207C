@@ -8,4 +8,5 @@ public interface INTCentral extends java.rmi.Remote { //Interface qui liste tout
     void addSql(Data data) throws java.rmi.RemoteException;
     void getSqlfull() throws java.rmi.RemoteException;
     void getSqlfilter(int ncapt) throws java.rmi.RemoteException;
+    void getSqlreq(String req) throws java.rmi.RemoteException;
 }

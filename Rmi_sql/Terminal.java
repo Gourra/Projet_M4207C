@@ -41,4 +41,8 @@ class Terminal{
         localbdd = central.getToReturn();
     }
 
+    public void getSqlreq(Central central, String req){
+        central.getSqlreq(req);
+        localbdd = central.getToReturn();
+    }
 }

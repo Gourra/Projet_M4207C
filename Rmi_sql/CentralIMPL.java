@@ -139,4 +139,41 @@ public class CentralIMPL extends UnicastRemoteObject implements INTCentral{
         toReturn = toReturn2;
     }
 
+    public void getSqlreq(String req) throws java.rmi.RemoteException{
+
+        ArrayList<Data> toReturn2 = new ArrayList<Data>();
+        Connection c = null;
+        Statement stmt = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:database.db");
+            c.setAutoCommit(false);
+            //System.out.println("Opened database successfully"); //debug
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( req );
+            
+            while ( rs.next() ) {
+                int idcapt = rs.getInt("ncpt");
+                String  date = rs.getString("datecpt");
+                int val  = rs.getInt("val");
+                String  unite = rs.getString("unite");
+                
+                toReturn2.add((new Data(date, idcapt, val, unite)));
+                //System.out.println(date + "  -  capteur n°" + idcapt + "  -  " + val + " " + unite );
+            }
+
+            rs.close();
+            stmt.close();
+            c.close();
+
+        } catch ( Exception e ) {
+            System.out.println("Une erreur est survenue");
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        toReturn = toReturn2;
+    }
 }

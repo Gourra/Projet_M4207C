@@ -37,10 +37,12 @@ public class ClientTerminal{
             while (true) {
                 String choix = null;
                 String choix2 = null;
+                String choix3 = null;
 
                 System.out.println("------------------------------------------------");
                 System.out.println("[1]Récupérer la base de donnée");
-                System.out.println("[2]Récupérer les donées d'un capteur spécifique");
+                System.out.println("[2]Récupérer les données d'un capteur spécifique");
+                System.out.println("[3]Envoyer une requète SQL (Avancée)");
                 System.out.println("[ctrl+c] pour quitter");
                 choix = clavier.next(); 
 
@@ -57,6 +59,21 @@ public class ClientTerminal{
                         choix2 = clavier.next();
                         int parsechoix = Integer.parseInt(choix2);
                         T1.getSqlfilter(C1, parsechoix);
+                        T1.print();
+                        break;
+                    case "3":
+                        System.out.println("-------------------Structure--------------------");
+                        System.out.println("TABLE:  VALEURS");
+                        System.out.println("DATECPT | NCPT | VAL | UNITE");
+                        System.out.println("------------------------------------------------");
+                        System.out.println("ex: #SELECT * FROM VALEURS WHERE VAL>0 ;");
+                        System.out.println("! doit commencer par : SELECT * -> sinon erreur");
+                        System.out.println("Entrez la requète :");
+                        choix3 = clavier.next();
+                        choix3 += clavier.nextLine();
+                        //String req = choix3 ; //debug
+                        System.out.println(choix3);
+                        T1.getSqlreq(C1, choix3);
                         T1.print();
                         break;
                     default:

@@ -37,4 +37,8 @@ public class TerminalIMPL {
         localbdd = central.getToReturn();
     }
     
+    public void getSqlreq(INTCentral central, String req) throws RemoteException{
+        central.getSqlreq(req);
+        localbdd = central.getToReturn();
+    }
 }
