@@ -41,22 +41,22 @@ public class CurveCanvas extends JComponent{
 
 
         // --- DRAW VALUES Y ---
-        graphics.drawString("-20", (int)(getWidth()*0.15), (int)(getHeight()*0.0625*14.95)); // sur axe y
+        graphics.drawString("-20", (int)(getWidth()*0.145), (int)(getHeight()*0.0625*14.95)); // sur axe y
         graphics.drawLine((int)(getWidth()*0.169), (int)(getHeight()*0.0625*15), (int)(getWidth()*0.185), (int)(getHeight()*0.0625*15));
 
-        graphics.drawString("-10", (int)(getWidth()*0.15), (int)(getHeight()*0.0625*12.95)); // sur axe y
+        graphics.drawString("-10", (int)(getWidth()*0.145), (int)(getHeight()*0.0625*12.95)); // sur axe y
         graphics.drawLine((int)(getWidth()*0.169), (int)(getHeight()*0.0625*13), (int)(getWidth()*0.185), (int)(getHeight()*0.0625*13));
 
-        graphics.drawString(" 10", (int)(getWidth()*0.15), (int)(getHeight()*0.0625*8.95)); // sur axe y
+        graphics.drawString(" 10", (int)(getWidth()*0.145), (int)(getHeight()*0.0625*8.95)); // sur axe y
         graphics.drawLine((int)(getWidth()*0.169), (int)(getHeight()*0.0625*9), (int)(getWidth()*0.185), (int)(getHeight()*0.0625*9));
 
-        graphics.drawString(" 20", (int)(getWidth()*0.15), (int)(getHeight()*0.0625*6.95)); // sur axe y
+        graphics.drawString(" 20", (int)(getWidth()*0.145), (int)(getHeight()*0.0625*6.95)); // sur axe y
         graphics.drawLine((int)(getWidth()*0.169), (int)(getHeight()*0.0625*7), (int)(getWidth()*0.185), (int)(getHeight()*0.0625*7));
 
-        graphics.drawString(" 30", (int)(getWidth()*0.15), (int)(getHeight()*0.0625*4.95)); // sur axe y
+        graphics.drawString(" 30", (int)(getWidth()*0.145), (int)(getHeight()*0.0625*4.95)); // sur axe y
         graphics.drawLine((int)(getWidth()*0.169), (int)(getHeight()*0.0625*5), (int)(getWidth()*0.185), (int)(getHeight()*0.0625*5));
     
-        graphics.drawString(" 40", (int)(getWidth()*0.15), (int)(getHeight()*0.0625*2.95)); // sur axe y
+        graphics.drawString(" 40", (int)(getWidth()*0.145), (int)(getHeight()*0.0625*2.95)); // sur axe y
         graphics.drawLine((int)(getWidth()*0.169), (int)(getHeight()*0.0625*3), (int)(getWidth()*0.185), (int)(getHeight()*0.0625*3));
 
         
