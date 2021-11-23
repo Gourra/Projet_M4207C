@@ -38,11 +38,13 @@ public class ClientTerminal{
                 String choix = null;
                 String choix2 = null;
                 String choix3 = null;
+                String choix4 = null;
 
                 System.out.println("------------------------------------------------");
                 System.out.println("[1]Récupérer la base de donnée");
                 System.out.println("[2]Récupérer les données d'un capteur spécifique");
-                System.out.println("[3]Envoyer une requète SQL (Avancée)");
+                System.out.println("[3]Récuperer les données d'une date");
+                System.out.println("[4]Envoyer une requète SQL (Avancée)");
                 System.out.println("[ctrl+c] pour quitter");
                 choix = clavier.next(); 
 
@@ -62,6 +64,15 @@ public class ClientTerminal{
                         T1.print();
                         break;
                     case "3":
+                        System.out.println("------------------------------------------------");
+                        System.out.println("ex: #13/11/2021");
+                        System.out.println("Entrez la Date :");
+                        choix4 = clavier.next();
+                        choix4 += clavier.nextLine();
+                        T1.getSqlDATE(C1, choix4);
+                        T1.print();
+                        break;
+                    case "4":
                         System.out.println("-------------------Structure--------------------");
                         System.out.println("TABLE:  VALEURS");
                         System.out.println("DATECPT | NCPT | VAL | UNITE");

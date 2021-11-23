@@ -45,4 +45,9 @@ class Terminal{
         central.getSqlreq(req);
         localbdd = central.getToReturn();
     }
+
+    public void getSqlDATE(Central central, String req){
+        central.getSqlDate(req);
+        localbdd = central.getToReturn();
+    }
 }

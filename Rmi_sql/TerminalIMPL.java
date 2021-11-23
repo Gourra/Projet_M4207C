@@ -41,4 +41,9 @@ public class TerminalIMPL {
         central.getSqlreq(req);
         localbdd = central.getToReturn();
     }
+
+    public void getSqlDATE(INTCentral central, String req) throws RemoteException{
+        central.getSqlDate(req);
+        localbdd = central.getToReturn();
+    }
 }

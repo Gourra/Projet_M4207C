@@ -8,4 +8,5 @@ public interface INTTerminal { //Interface qui liste toutes les foncntions
     void getSqlfull(Central central);
     void getSqlfilter(Central central, int ncapt);
     void getSqlreq(Central central, String req);
+    void getSqlDATE(Central central, String req);
 }
