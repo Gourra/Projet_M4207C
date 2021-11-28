@@ -9,7 +9,7 @@ class Central{
     //Contructeur
     public Central(){
         this.bdd = new ArrayList<Data>(); //Initiation de la base de donnée
-        this.toReturn = new ArrayList<Data>();
+        this.toReturn = new ArrayList<Data>(); //Arraylist qui sera envoyé aux terminaux
     }
 
     //Méthodes d'accès
@@ -57,31 +57,35 @@ class Central{
         }
     }
 
-    public void getSqlfull(){
+    public void getSqlfull(){ //méthode qui renvoie l'intégralité de la bdd avec sql
 
+        //initialisation
         ArrayList<Data> toReturn2 = new ArrayList<Data>();
         Connection c = null;
         Statement stmt = null;
 
         try {
+            //connection BDD
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:database.db");
             c.setAutoCommit(false);
             //System.out.println("Opened database successfully"); //debug
-
+            
+            //creation de la requete
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM VALEURS;" );
             
-            while ( rs.next() ) {
+            while ( rs.next() ) { //recuperation dans la bdd
                 int idcapt = rs.getInt("ncpt");
                 String  date = rs.getString("datecpt");
                 int val  = rs.getInt("val");
                 String  unite = rs.getString("unite");
                 
-                toReturn2.add((new Data(date, idcapt, val, unite)));
+                toReturn2.add((new Data(date, idcapt, val, unite))); //stockage dans l'arraylist a return
                 //System.out.println(date + "  -  capteur n°" + idcapt + "  -  " + val + " " + unite );
             }
-
+            
+            //fermeture de connextion
             rs.close();
             stmt.close();
             c.close();
@@ -92,34 +96,38 @@ class Central{
             System.out.println(e.getMessage());
         }
 
-        toReturn = toReturn2;
+        toReturn = toReturn2; //actualisation de l'arraylist
     }
 
-    public void getSqlfilter(int ncapt){
-
+    public void getSqlfilter(int ncapt){ //filtre les valeurs pour un capteur particulier
+        
+        //initialisation
         ArrayList<Data> toReturn2 = new ArrayList<Data>();
         Connection c = null;
         Statement stmt = null;
 
         try {
+            //conection a la BDD
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:database.db");
             c.setAutoCommit(false);
             //System.out.println("Opened database successfully"); //debug
-
+            
+            //creation de la requete
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM VALEURS WHERE ncpt="+ncapt+";" );
             
-            while ( rs.next() ) {
+            while ( rs.next() ) { //recuperation dans la bdd
                 int idcapt = rs.getInt("ncpt");
                 String  date = rs.getString("datecpt");
                 int val  = rs.getInt("val");
                 String  unite = rs.getString("unite");
                 
-                toReturn2.add((new Data(date, idcapt, val, unite)));
+                toReturn2.add((new Data(date, idcapt, val, unite))); //stockage dans l'arraylist a return
                 //System.out.println(date + "  -  capteur n°" + idcapt + "  -  " + val + " " + unite );
             }
-
+            
+            //fermeture de connection
             rs.close();
             stmt.close();
             c.close();
@@ -133,7 +141,7 @@ class Central{
         toReturn = toReturn2;
     }
 
-    public void getSqlreq(String req){
+    public void getSqlreq(String req){ //execute une requète sql ATTENTION potentielle faille de sécurité
 
         ArrayList<Data> toReturn2 = new ArrayList<Data>();
         Connection c = null;
@@ -171,7 +179,7 @@ class Central{
         toReturn = toReturn2;
     }
 
-    public void getSqlDate(String req){
+    public void getSqlDate(String req){ //filtre sur une date 
 
         ArrayList<Data> toReturn2 = new ArrayList<Data>();
         Connection c = null;
